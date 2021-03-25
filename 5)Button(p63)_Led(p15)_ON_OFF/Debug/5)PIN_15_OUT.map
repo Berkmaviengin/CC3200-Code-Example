@@ -1,0 +1,274 @@
+******************************************************************************
+                  TI ARM Linker PC v16.9.1                     
+******************************************************************************
+>> Linked Mon May 08 16:22:37 2017
+
+OUTPUT FILE NAME:   <5)PIN_15_OUT.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 200043e9
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  SRAM_CODE             20004000   00012fff  0000072e  000128d1  RW X
+  SRAM_DATA             20017000   00019000  0000052e  00018ad2  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+20004000    20004000    00000730   00000730    r-x
+  20004000    20004000    0000054e   0000054e    r-x .text
+  20004550    20004550    000001a8   000001a8    r-- .const
+  200046f8    200046f8    00000038   00000038    r-- .cinit
+20017000    20017000    0000001c   00000000    rw-
+  20017000    20017000    00000018   00000000    rw- .data
+  20017018    20017018    00000004   00000000    rw- .bss
+2002faec    2002faec    00000512   00000000    rw-
+  2002faec    2002faec    00000512   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.init_array 
+*          0    20004000    00000000     UNINITIALIZED
+
+.text      0    20004000    0000054e     
+                  20004000    0000009c     rtsv7M4_T_le_eabi.lib : memcpy_t2.obj (.text)
+                  2000409c    00000088     driverlib.a : pin.obj (.text:PinConfigSet)
+                  20004124    0000007a     rtsv7M4_T_le_eabi.lib : memset_t2.obj (.text)
+                  2000419e    00000002                           : mpu_init.obj (.text)
+                  200041a0    00000070                           : autoinit.obj (.text)
+                  20004210    00000068                           : copy_decompress_lzss.obj (.text:decompress:lzss)
+                  20004278    00000054                           : exit.obj (.text)
+                  200042cc    0000004c     main.obj (.text)
+                  20004318    0000004c     rtsv7M4_T_le_eabi.lib : cpy_tbl.obj (.text)
+                  20004364    00000044     pinmux.obj (.text)
+                  200043a8    00000040     driverlib.a : pin.obj (.text:PinModeSet)
+                  200043e8    00000040     rtsv7M4_T_le_eabi.lib : boot.obj (.text)
+                  20004428    0000003c     driverlib.a : prcm.obj (.text:PRCMPeripheralClkEnable)
+                  20004464    00000036                 : gpio.obj (.text:GPIODirModeSet)
+                  2000449a    00000030                 : pin.obj (.text:PinTypeGPIO)
+                  200044ca    00000020                 : gpio.obj (.text:GPIOPinWrite)
+                  200044ea    00000018                 : gpio.obj (.text:GPIOPinRead)
+                  20004502    00000002     rtsv7M4_T_le_eabi.lib : startup.obj (.text)
+                  20004504    00000018                           : args_main.obj (.text)
+                  2000451c    00000014                           : _lock.obj (.text)
+                  20004530    0000000e                           : copy_decompress_none.obj (.text:decompress:none)
+                  2000453e    0000000c                           : copy_zero_init.obj (.text:decompress:ZI)
+                  2000454a    00000004                           : pre_init.obj (.text)
+
+.const     0    20004550    000001a8     
+                  20004550    00000100     driverlib.a : pin.obj (.const:g_ulPinToPadMap)
+                  20004650    000000a8                 : prcm.obj (.const:PRCM_PeriphRegsList)
+
+.cinit     0    200046f8    00000038     
+                  200046f8    00000013     (.cinit..data.load) [load image, compression = lzss]
+                  2000470b    00000001     --HOLE-- [fill = 0]
+                  2000470c    0000000c     (__TI_handler_table)
+                  20004718    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  20004720    00000010     (__TI_cinit_table)
+
+.data      0    20017000    00000018     UNINITIALIZED
+                  20017000    0000000c     rtsv7M4_T_le_eabi.lib : exit.obj (.data:$O1$$)
+                  2001700c    00000008                           : _lock.obj (.data:$O1$$)
+                  20017014    00000004                           : stkdepth_vars.obj (.data)
+
+.bss       0    20017018    00000004     UNINITIALIZED
+                  20017018    00000004     (.common:ucGPVal)
+
+.stack     0    2002faec    00000512     UNINITIALIZED
+                  2002faec    00000512     --HOLE--
+
+MODULE SUMMARY
+
+       Module                     code   ro data   rw data
+       ------                     ----   -------   -------
+    .\
+       main.obj                   76     0         4      
+       pinmux.obj                 68     0         0      
+    +--+--------------------------+------+---------+---------+
+       Total:                     144    0         4      
+                                                          
+    C:/TI/CC3200SDK_1.3.0/CC3200SDK_1.3.0/cc3200-sdk/driverlib/ccs/Release/driverlib.a
+       pin.obj                    248    256       0      
+       prcm.obj                   60     168       0      
+       gpio.obj                   110    0         0      
+    +--+--------------------------+------+---------+---------+
+       Total:                     418    424       0      
+                                                          
+    C:\TI\ccsv7\tools\compiler\ti-cgt-arm_16.9.1.LTS\lib\rtsv7M4_T_le_eabi.lib
+       memcpy_t2.obj              156    0         0      
+       memset_t2.obj              122    0         0      
+       autoinit.obj               112    0         0      
+       copy_decompress_lzss.obj   104    0         0      
+       exit.obj                   84     0         12     
+       cpy_tbl.obj                76     0         0      
+       boot.obj                   64     0         0      
+       _lock.obj                  20     0         8      
+       args_main.obj              24     0         0      
+       copy_decompress_none.obj   14     0         0      
+       copy_zero_init.obj         12     0         0      
+       pre_init.obj               4      0         0      
+       stkdepth_vars.obj          0      0         4      
+       mpu_init.obj               2      0         0      
+       startup.obj                2      0         0      
+    +--+--------------------------+------+---------+---------+
+       Total:                     796    0         24     
+                                                          
+       Stack:                     0      0         1298   
+       Linker Generated:          0      55        0      
+    +--+--------------------------+------+---------+---------+
+       Grand Total:               1358   479       1326   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 20004720 records: 2, size/record: 8, table size: 16
+	.data: load addr=200046f8, load size=00000013 bytes, run addr=20017000, run size=00000018 bytes, compression=lzss
+	.bss: load addr=20004718, load size=00000008 bytes, run addr=20017018, run size=00000004 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 2000470c records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                           
+-------   ----                           
+20004279  C$$EXIT                        
+20004465  GPIODirModeSet                 
+200044eb  GPIOPinRead                    
+200044cb  GPIOPinWrite                   
+20004429  PRCMPeripheralClkEnable        
+2000409d  PinConfigSet                   
+200043a9  PinModeSet                     
+20004365  PinMuxConfig                   
+2000449b  PinTypeGPIO                    
+UNDEFED   SHT$$INIT_ARRAY$$Base          
+UNDEFED   SHT$$INIT_ARRAY$$Limit         
+2002fffe  __STACK_END                    
+00000512  __STACK_SIZE                   
+20004720  __TI_CINIT_Base                
+20004730  __TI_CINIT_Limit               
+2000470c  __TI_Handler_Table_Base        
+20004718  __TI_Handler_Table_Limit       
+200041a1  __TI_auto_init                 
+20017000  __TI_cleanup_ptr               
+20004211  __TI_decompress_lzss           
+20004531  __TI_decompress_none           
+20017004  __TI_dtors_ptr                 
+20017008  __TI_enable_exit_profile_output
+ffffffff  __TI_pprof_out_hndl            
+ffffffff  __TI_prof_data_size            
+ffffffff  __TI_prof_data_start           
+200046f8  __TI_static_base__             
+2000453f  __TI_zero_init                 
+20004125  __aeabi_memclr                 
+20004125  __aeabi_memclr4                
+20004125  __aeabi_memclr8                
+20004001  __aeabi_memcpy                 
+20004001  __aeabi_memcpy4                
+20004001  __aeabi_memcpy8                
+20004127  __aeabi_memset                 
+20004127  __aeabi_memset4                
+20004127  __aeabi_memset8                
+ffffffff  __binit__                      
+ffffffff  __c_args__                     
+2000419f  __mpu_init                     
+2002faec  __stack                        
+20004505  _args_main                     
+200043e9  _c_int00                       
+2001700c  _lock                          
+2000452b  _nop                           
+20004523  _register_lock                 
+2000451d  _register_unlock               
+20004503  _system_post_cinit             
+2000454b  _system_pre_init               
+20017010  _unlock                        
+2000427d  abort                          
+ffffffff  binit                          
+20004319  copy_in                        
+20004285  exit                           
+200042cd  main                           
+20017014  main_func_sp                   
+20004001  memcpy                         
+2000412d  memset                         
+20017018  ucGPVal                        
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                           
+-------   ----                           
+00000512  __STACK_SIZE                   
+20004001  __aeabi_memcpy                 
+20004001  __aeabi_memcpy4                
+20004001  __aeabi_memcpy8                
+20004001  memcpy                         
+2000409d  PinConfigSet                   
+20004125  __aeabi_memclr                 
+20004125  __aeabi_memclr4                
+20004125  __aeabi_memclr8                
+20004127  __aeabi_memset                 
+20004127  __aeabi_memset4                
+20004127  __aeabi_memset8                
+2000412d  memset                         
+2000419f  __mpu_init                     
+200041a1  __TI_auto_init                 
+20004211  __TI_decompress_lzss           
+20004279  C$$EXIT                        
+2000427d  abort                          
+20004285  exit                           
+200042cd  main                           
+20004319  copy_in                        
+20004365  PinMuxConfig                   
+200043a9  PinModeSet                     
+200043e9  _c_int00                       
+20004429  PRCMPeripheralClkEnable        
+20004465  GPIODirModeSet                 
+2000449b  PinTypeGPIO                    
+200044cb  GPIOPinWrite                   
+200044eb  GPIOPinRead                    
+20004503  _system_post_cinit             
+20004505  _args_main                     
+2000451d  _register_unlock               
+20004523  _register_lock                 
+2000452b  _nop                           
+20004531  __TI_decompress_none           
+2000453f  __TI_zero_init                 
+2000454b  _system_pre_init               
+200046f8  __TI_static_base__             
+2000470c  __TI_Handler_Table_Base        
+20004718  __TI_Handler_Table_Limit       
+20004720  __TI_CINIT_Base                
+20004730  __TI_CINIT_Limit               
+20017000  __TI_cleanup_ptr               
+20017004  __TI_dtors_ptr                 
+20017008  __TI_enable_exit_profile_output
+2001700c  _lock                          
+20017010  _unlock                        
+20017014  main_func_sp                   
+20017018  ucGPVal                        
+2002faec  __stack                        
+2002fffe  __STACK_END                    
+ffffffff  __TI_pprof_out_hndl            
+ffffffff  __TI_prof_data_size            
+ffffffff  __TI_prof_data_start           
+ffffffff  __binit__                      
+ffffffff  __c_args__                     
+ffffffff  binit                          
+UNDEFED   SHT$$INIT_ARRAY$$Base          
+UNDEFED   SHT$$INIT_ARRAY$$Limit         
+
+[59 symbols]
